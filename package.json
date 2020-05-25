@@ -2,5 +2,15 @@
   "name": "firebase-games",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^7.14.4",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-use": "^14.2.0"
+  },
+  "source": "src/GameProvider.jsx",
+  "scripts": {
+    "build": "microbundle"
+  }
 }
