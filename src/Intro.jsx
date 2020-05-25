@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { FirebaseContext } from "./firebase";
-import { shuffle } from "../getLetters";
+import shuffle from "./shuffle";
 
 import "firebase/database";
 
