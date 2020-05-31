@@ -12,11 +12,17 @@
   "source": "src/GameProvider.jsx",
   "scripts": {
     "build": "microbundle"
-    },
+  },
   "peerDependencies": {
     "react": "^16.13.1"
   },
   "devDependencies": {
+    "husky": "^4.2.5",
     "microbundle": "^0.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
   }
 }
