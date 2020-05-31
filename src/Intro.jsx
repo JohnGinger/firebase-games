@@ -87,6 +87,7 @@ const JoinGame = ({
 
   return (
     <>
+      <h1>trivial</h1>
       <input
         type="text"
         placeholder="Your name"
