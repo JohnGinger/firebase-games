@@ -11,9 +11,8 @@
   },
   "source": "src/GameProvider.jsx",
   "scripts": {
-    "build": "microbundle",
-    "postinstall": "npm run build"
-  },
+    "build": "microbundle"
+    },
   "peerDependencies": {
     "react": "^16.13.1"
   },
