@@ -11,10 +11,7 @@
     "react-use": "^14.2.0"
   },
   "scripts": {
-    "build": "parcel build --target node src/GameProvider.jsx"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1"
+    "build": "parcel build --target node src/GameProvider.jsx --out-dir ."
   },
   "devDependencies": {
     "husky": "^4.2.5",
