@@ -6,17 +6,19 @@
   "dependencies": {
     "firebase": "^7.14.4",
     "oboe": "^2.1.5",
-    "parcel": "^1.12.4",
+    "parcel": "^2.0.0-alpha.3.2",
     "parcel-bundler": "^1.12.4",
-    "react": "^16.13.1",
     "react-use": "^14.2.0"
   },
   "scripts": {
-    "build": "parcel build src/GameProvider.jsx --out-dir . --bundle-node-modules"
+    "build": "parcel build src/GameProvider.jsx --out-dir ."
   },
   "devDependencies": {
     "husky": "^4.2.5",
     "sass": "^1.26.7"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
   },
   "husky": {
     "hooks": {
