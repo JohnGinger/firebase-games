@@ -12,7 +12,7 @@
     "react-use": "^14.2.0"
   },
   "scripts": {
-    "build": "parcel build --target node src/GameProvider.jsx --out-dir ."
+    "build": "parcel build --target node src/GameProvider.jsx --out-dir . --bundle-node-modules"
   },
   "devDependencies": {
     "husky": "^4.2.5",
