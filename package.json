@@ -30,7 +30,6 @@
     "husky": "^4.2.5"
   },
   "peerDependencies": {
-    "@types/react": "^16.9.24",
     "react": "^16.13.1"
   }
 }
