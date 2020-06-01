@@ -1,28 +1,40 @@
 {
   "name": "firebase-games",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index/es/js",
   "license": "MIT",
   "dependencies": {
+    "@types/react": "^16.9.35",
     "firebase": "^7.14.4",
     "oboe": "^2.1.5",
     "parcel": "^2.0.0-alpha.3.2",
     "parcel-bundler": "^1.12.4",
-    "react-use": "^14.2.0"
+    "react-use": "^14.2.0",
+    "rollup": "^2.12.0",
+    "rollup-plugin-jsx": "^1.0.3",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-postcss": "^3.1.1",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "rollup-plugin-url": "^3.0.1",
+    "typescript": "^3.9.3"
   },
   "scripts": {
-    "build": "parcel build src/GameProvider.jsx --out-dir ."
+    "install": "rollup -c"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@rollup/plugin-replace": "^2.2.0",
     "husky": "^4.2.5",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "sass": "^1.26.7"
   },
   "peerDependencies": {
+    "@types/react": "^16.9.24",
     "react": "^16.13.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run build && git add -A"
-    }
   }
 }

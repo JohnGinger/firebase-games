@@ -8,15 +8,19 @@ import oboe from "oboe";
 const adjectives = require("./adjectives.data");
 const nouns = require("./nouns.data");
 
-require("./intro.scss");
+import "./intro.scss";
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "intro-block": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
 
-export default ({
-  playerName,
-  setPlayerName,
-  setGameId,
-  onStart,
-  gameIntro,
-}) => (
+export default ({ playerName, setPlayerName, setGameId, gameIntro }) => (
   <intro-block>
     <h2>Welcome</h2>
     {gameIntro}
@@ -24,17 +28,11 @@ export default ({
       playerName={playerName}
       setPlayerName={setPlayerName}
       setGameId={setGameId}
-      onStart={onStart}
     />
   </intro-block>
 );
 
-const JoinGame = ({
-  playerName,
-  setPlayerName,
-  setGameId: setGame,
-  onStart,
-}) => {
+const JoinGame = ({ playerName, setPlayerName, setGameId: setGame }) => {
   const [gameId, setGameId] = useState("");
   const [loading, setLoading] = useState(false);
   const [adjectivesList, setAdjectivesList] = useState([]);

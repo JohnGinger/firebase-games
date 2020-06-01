@@ -9,9 +9,24 @@ import { FirebaseContext } from "./firebase";
 import "firebase/database";
 import Lobby from "./Lobby";
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "game-container": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+      "game-title": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
+
 export default ({ gameId, playerName, children, onStart }) => {
   const firebase = useContext(FirebaseContext);
-  const [gameState, setGameState] = useState({});
+  const [gameState, setGameState]: any = useState({});
   const [gameRef, setGameRef] = useState();
 
   useEffect(() => {

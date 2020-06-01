@@ -1,8 +1,22 @@
 import React from "react";
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "players-list": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+      "player-name": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
 
 const Lobby = ({ gameState, gameRef, playerName, onStart }) => {
   const startGame = () => {
-    if (Object.values(gameState.players).some((x) => !x.ready)) {
+    if (Object.values(gameState.players).some((x: any) => !x.ready)) {
       alert("Someone isn't ready");
       return;
     }
@@ -24,7 +38,7 @@ const Lobby = ({ gameState, gameRef, playerName, onStart }) => {
   return (
     <players-list>
       <h2>Waiting to play</h2>
-      {Object.entries(gameState.players).map(([key, player]) => (
+      {Object.entries(gameState.players).map(([key, player]: any) => (
         <label key={player.name}>
           <player-name>
             {player.name} is {player.ready ? "ready" : "not ready"}
@@ -36,7 +50,7 @@ const Lobby = ({ gameState, gameRef, playerName, onStart }) => {
       ))}
       <button
         onClick={() => startGame()}
-        disabled={Object.values(gameState.players).some((x) => !x.ready)}
+        disabled={Object.values(gameState.players).some((x: any) => !x.ready)}
       >
         Start Game
       </button>
