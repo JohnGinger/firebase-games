@@ -1,48 +1,25 @@
 game-container {
-  background: #eceff1;
-  color: rgba(0, 0, 0, 0.87);
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-
-  h2 {
-    color: #ffa100;
-    font-weight: bold;
-    font-size: 16px;
-    margin: 0 0 8px;
-  }
-  h1 {
-    font-size: 22px;
-    font-weight: 300;
-    color: rgba(0, 0, 0, 0.6);
-    margin: 0 0 16px;
-  }
-  p {
-    line-height: 140%;
-    margin: 16px 0 24px;
-    font-size: 14px;
-  }
-  button {
+  game-title {
+    background-color: lightgrey;
+    font-variant: small-caps;
+    padding: 5px;
+    width: 100%;
     display: block;
-    text-align: center;
-    background: #039be5;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: white;
-    padding: 16px;
-    border-radius: 4px;
-    margin: 8px;
-    font-size: 1.2em;
-    outline: none;
+    margin-bottom: 1em;
   }
+  players-list {
+    display: flex;
+    flex-flow: column;
+    background: white;
+    max-width: 360px;
+    margin: 100px auto 16px;
+    padding: 32px 24px;
+    border-radius: 3px;
 
-  button:disabled,
-  button[disabled] {
-    border: 1px solid #999999;
-    background-color: #cccccc;
-    color: #666666;
-  }
-  button {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    player-name {
+      font-size: 1.5em;
+      display: block;
+      padding: 1.2em;
+    }
   }
 }
