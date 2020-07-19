@@ -3,7 +3,7 @@ import { FirebaseProvider } from "./firebase";
 import { useSearchParam } from "react-use";
 import Intro from "./Intro";
 import GameAndLobby from "./GameAndLobby";
-import "default.scss"
+import "./GameContainer.scss";
 
 export default ({
   children,
