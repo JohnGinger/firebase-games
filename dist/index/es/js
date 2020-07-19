@@ -3,6 +3,7 @@ import punycode from 'punycode';
 import querystring$1 from 'querystring';
 import http from 'http';
 import https from 'https';
+import 'default.scss';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
