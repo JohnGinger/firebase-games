@@ -5,8 +5,6 @@ import shuffle from "./shuffle";
 import "firebase/database";
 
 import oboe from "oboe";
-const adjectives = require("./adjectives.data");
-const nouns = require("./nouns.data");
 
 import "./intro.scss";
 declare global {
@@ -32,7 +30,13 @@ export default ({ playerName, setPlayerName, setGameId, gameIntro }) => (
   </intro-block>
 );
 
-const JoinGame = ({ playerName, setPlayerName, setGameId: setGame }) => {
+const JoinGame = ({
+  playerName,
+  setPlayerName,
+  setGameId: setGame,
+  adjectivesPath,
+  nounsPaths,
+}) => {
   const [gameId, setGameId] = useState("");
   const [loading, setLoading] = useState(false);
   const [adjectivesList, setAdjectivesList] = useState([]);
@@ -60,14 +64,14 @@ const JoinGame = ({ playerName, setPlayerName, setGameId: setGame }) => {
   };
 
   useEffect(() => {
-    oboe(adjectives)
+    oboe(adjectivesPath)
       .done(function (words) {
         setAdjectivesList(shuffle(words));
       })
       .fail(function (e) {
         console.warn(e);
       });
-    oboe(nouns)
+    oboe(nounsPaths)
       .done(function (words) {
         setNounList(shuffle(words));
       })

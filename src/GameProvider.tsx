@@ -8,6 +8,8 @@ export default ({
   children,
   onStart = () => {},
   gameIntro,
+  adjectivesList,
+  nounsList,
   firebaseConfig,
 }) => {
   const [gameId, setGameId] = useState(useSearchParam("game") || "");
@@ -25,6 +27,8 @@ export default ({
           setPlayerName={setPlayerName}
           setGameId={setGameId}
           gameIntro={gameIntro}
+          adjectivesPath={adjectivesList}
+          nounsPath={nounsList}
         />
       )}
     </FirebaseProvider>
