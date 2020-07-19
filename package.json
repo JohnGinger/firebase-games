@@ -24,7 +24,7 @@
     "sass": "^1.26.7"
   },
   "scripts": {
-    "install": "cp -r assets/ dist/ && rollup -c"
+    "install": "rollup -c"
   },
   "devDependencies": {
     "husky": "^4.2.5"

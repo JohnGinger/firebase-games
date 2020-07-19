@@ -18,7 +18,14 @@ declare global {
   }
 }
 
-export default ({ playerName, setPlayerName, setGameId, gameIntro }) => (
+export default ({
+  playerName,
+  setPlayerName,
+  setGameId,
+  gameIntro,
+  adjectivesPath,
+  nounsPath,
+}) => (
   <intro-block>
     <h2>Welcome</h2>
     {gameIntro}
@@ -26,6 +33,8 @@ export default ({ playerName, setPlayerName, setGameId, gameIntro }) => (
       playerName={playerName}
       setPlayerName={setPlayerName}
       setGameId={setGameId}
+      adjectivesPath={adjectivesPath}
+      nounsPath={nounsPath}
     />
   </intro-block>
 );
@@ -35,7 +44,7 @@ const JoinGame = ({
   setPlayerName,
   setGameId: setGame,
   adjectivesPath,
-  nounsPaths,
+  nounsPath,
 }) => {
   const [gameId, setGameId] = useState("");
   const [loading, setLoading] = useState(false);
@@ -71,7 +80,7 @@ const JoinGame = ({
       .fail(function (e) {
         console.warn(e);
       });
-    oboe(nounsPaths)
+    oboe(nounsPath)
       .done(function (words) {
         setNounList(shuffle(words));
       })

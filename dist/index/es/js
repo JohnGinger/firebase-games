@@ -21759,13 +21759,11 @@ module.exports = https;
 
 var oboe = unwrapExports(oboeNode);
 
-const adjectives = require("./adjectives.data");
-const nouns = require("./nouns.data");
-var Intro = ({ playerName, setPlayerName, setGameId, gameIntro }) => (React__default.createElement("intro-block", null,
+var Intro = ({ playerName, setPlayerName, setGameId, gameIntro, adjectivesPath, nounsPath, }) => (React__default.createElement("intro-block", null,
     React__default.createElement("h2", null, "Welcome"),
     gameIntro,
-    React__default.createElement(JoinGame, { playerName: playerName, setPlayerName: setPlayerName, setGameId: setGameId })));
-const JoinGame = ({ playerName, setPlayerName, setGameId: setGame }) => {
+    React__default.createElement(JoinGame, { playerName: playerName, setPlayerName: setPlayerName, setGameId: setGameId, adjectivesPath: adjectivesPath, nounsPath: nounsPath })));
+const JoinGame = ({ playerName, setPlayerName, setGameId: setGame, adjectivesPath, nounsPath, }) => {
     const [gameId, setGameId] = useState("");
     const [loading, setLoading] = useState(false);
     const [adjectivesList, setAdjectivesList] = useState([]);
@@ -21790,14 +21788,14 @@ const JoinGame = ({ playerName, setPlayerName, setGameId: setGame }) => {
         });
     };
     useEffect(() => {
-        oboe(adjectives)
+        oboe(adjectivesPath)
             .done(function (words) {
             setAdjectivesList(shuffle(words));
         })
             .fail(function (e) {
             console.warn(e);
         });
-        oboe(nouns)
+        oboe(nounsPath)
             .done(function (words) {
             setNounList(shuffle(words));
         })
@@ -21874,10 +21872,10 @@ var GameAndLobby = ({ gameId, playerName, children, onStart }) => {
         gameState.active ? (Children.map(children, (child) => cloneElement(child, { gameState, gameRef, playerName }))) : (React__default.createElement(Lobby, { gameState: gameState, gameRef: gameRef, playerName: playerName, onStart: onStart }))));
 };
 
-var GameProvider = ({ children, onStart = () => { }, gameIntro, firebaseConfig, }) => {
+var GameProvider = ({ children, onStart = () => { }, gameIntro, adjectivesList, nounsList, firebaseConfig, }) => {
     const [gameId, setGameId] = useState(useSearchParam$1("game") || "");
     const [playerName, setPlayerName] = useState(useSearchParam$1("name") || "");
-    return (React__default.createElement(FirebaseProvider, { firebaseConfig: firebaseConfig }, gameId ? (React__default.createElement(GameAndLobby, { gameId: gameId, playerName: playerName, onStart: onStart }, children)) : (React__default.createElement(Intro, { playerName: playerName, setPlayerName: setPlayerName, setGameId: setGameId, gameIntro: gameIntro }))));
+    return (React__default.createElement(FirebaseProvider, { firebaseConfig: firebaseConfig }, gameId ? (React__default.createElement(GameAndLobby, { gameId: gameId, playerName: playerName, onStart: onStart }, children)) : (React__default.createElement(Intro, { playerName: playerName, setPlayerName: setPlayerName, setGameId: setGameId, gameIntro: gameIntro, adjectivesPath: adjectivesList, nounsPath: nounsList }))));
 };
 
 export default GameProvider;
