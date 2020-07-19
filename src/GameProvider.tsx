@@ -4,7 +4,9 @@ import { useSearchParam } from "react-use";
 import Intro from "./Intro";
 import GameAndLobby from "./GameAndLobby";
 import "./GameContainer.scss";
-import "./body.scss"
+import "./body.scss";
+import shuffle from "./shuffle";
+import repeatTile from "./repeatTile";
 
 export default ({
   children,
@@ -36,3 +38,5 @@ export default ({
     </FirebaseProvider>
   );
 };
+
+export { shuffle, repeatTile };
